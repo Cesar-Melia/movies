@@ -1,9 +1,9 @@
 <ion-header>
   <ion-toolbar>
 
-    <ion-buttons slot="start">
+    <ion-buttons slot="start" *ngIf="title !== 'Peliculas'">
       <ion-back-button defaultHref="/" text="volver" color="primary"></ion-back-button>
     </ion-buttons>
-    <ion-title>header</ion-title>
+    <ion-title>{{title}}</ion-title>
   </ion-toolbar>
 </ion-header>
