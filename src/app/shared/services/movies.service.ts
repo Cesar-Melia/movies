@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 
 import { ApiResponse } from '../interfaces/ApiResponse';
+import { MovieDetail } from '../interfaces/MovieDetail';
 
 @Injectable({
   providedIn: 'root',
@@ -20,5 +21,11 @@ export class MoviesService {
     const url = `${this.API_URL}search/movie?api_key=${this.API_KEY}&query=${query}&language=es`;
 
     return this.http.get<ApiResponse>(url);
+  }
+
+  getMovieDetail(id: string): Observable<MovieDetail> {
+    const url = `${this.API_URL}movie/${id}?api_key=${this.API_KEY}&language=es`;
+
+    return this.http.get<MovieDetail>(url);
   }
 }

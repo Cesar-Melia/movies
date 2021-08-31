@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
-import { Movie } from '../../shared/interfaces/Movie';
+import { MovieDetail } from '../../shared/interfaces/MovieDetail';
 
 @Component({
   selector: 'app-detail',
@@ -10,7 +10,7 @@ import { Movie } from '../../shared/interfaces/Movie';
 })
 export class DetailPage implements OnInit {
   id: string;
-  movie: Movie;
+  movieDetail: MovieDetail;
 
   constructor(private route: ActivatedRoute) {}
 
