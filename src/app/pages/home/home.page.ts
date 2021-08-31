@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { MoviesService } from '../../shared/services/movies.service';
 import { Movie } from '../../shared/interfaces/Movie';
-import { ApiResponse } from '../../shared/interfaces/ApiResponse';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +9,7 @@ import { ApiResponse } from '../../shared/interfaces/ApiResponse';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-  movies: Movie[] = [];
+  movies: Movie[];
   movieQuery: string;
 
   constructor(private moviesService: MoviesService) {}

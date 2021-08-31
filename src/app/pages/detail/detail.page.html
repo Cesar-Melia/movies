@@ -1,5 +1,35 @@
 <app-header title="Detalle"></app-header>
 
-<ion-content>
+<ion-content *ngIf="movie">
+
+  <ion-label class="title">
+    <h1>{{movie.title}}</h1>
+  </ion-label>
+
+  <div class="image-container">
+    <img *ngIf="movie.backdrop_path" [src]="movie.backdrop_path | img" class="image-container__img">
+  </div>
+
+  <ion-grid>
+    <ion-row>
+
+      <ion-col size="4" class="poster">
+        <ion-card class="poster">
+          <img *ngIf="movie.poster_path" [src]="movie.poster_path | img">
+        </ion-card>
+      </ion-col>
+
+      <ion-col>
+        <ion-item>
+          <ion-icon slot="start" name="star-sharp" class="icon"></ion-icon>
+          <ion-label>Rating</ion-label>
+          <ion-node slot="end" color="primary">
+            {{movie.vote_average}}
+          </ion-node>
+        </ion-item>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

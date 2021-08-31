@@ -13,10 +13,10 @@ export class ImgPipe implements PipeTransform {
       return './assets/no-image.jpg';
     }
 
-    const imgUrl = `${this.IMG_URL}/${size}${img}`;
+    const imgUrl = `${this.IMG_URL}${size}${img}`;
 
     console.log('URL', imgUrl);
 
-    return null;
+    return imgUrl;
   }
 }

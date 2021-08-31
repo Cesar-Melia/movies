@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
 import { MovieDetail } from '../../shared/interfaces/MovieDetail';
+import { MoviesService } from '../../shared/services/movies.service';
 
 @Component({
   selector: 'app-detail',
@@ -10,15 +11,25 @@ import { MovieDetail } from '../../shared/interfaces/MovieDetail';
 })
 export class DetailPage implements OnInit {
   id: string;
-  movieDetail: MovieDetail;
+  movie: MovieDetail;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private moviesService: MoviesService
+  ) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: Params) => {
       this.id = params.get('movieId');
     });
 
-    console.log(this.id);
+    this.searchMovieDetail(this.id);
+  }
+
+  searchMovieDetail(id: string): void {
+    this.moviesService.getMovieDetail(id).subscribe((data) => {
+      this.movie = data;
+      console.log(this.movie); /////////////////////////////////Delete
+    });
   }
 }
