@@ -9,6 +9,7 @@ import { HomePageRoutingModule } from './home-routing.module';
 import { HomePage } from './home.page';
 import { CoreModule } from '../../core/core.module';
 import { SharedModule } from '../../shared/shared.module';
+import { MovieItemComponent } from './components/movie-item/movie-item.component';
 
 @NgModule({
   imports: [
@@ -19,6 +20,6 @@ import { SharedModule } from '../../shared/shared.module';
     CoreModule,
     SharedModule,
   ],
-  declarations: [HomePage],
+  declarations: [HomePage, MovieItemComponent],
 })
 export class HomePageModule {}

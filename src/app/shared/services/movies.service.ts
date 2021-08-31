@@ -3,20 +3,22 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 
-import { Movie } from '../models/Movie';
-import { ApiResponse } from '../models/ApiResponse';
+import { ApiResponse } from '../interfaces/ApiResponse';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MoviesService {
-  apiUrl: string = environment.apiUrl;
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  API_URL: string = environment.apiUrl;
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  API_KEY: string = environment.apiKey;
 
   constructor(private http: HttpClient) {}
 
   getMovies(query: string): Observable<ApiResponse> {
-    const queryUrl = `search/movie?api_key=c33d686c5bcc80aca5d02d7e38d82308&query=${query}&language=es`;
+    const url = `${this.API_URL}search/movie?api_key=${this.API_KEY}&query=${query}&language=es`;
 
-    return this.http.get<ApiResponse>(`${this.apiUrl}${queryUrl}`);
+    return this.http.get<ApiResponse>(url);
   }
 }

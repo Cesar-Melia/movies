@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Movie } from '../../shared/models/Movie';
+
 import { MoviesService } from '../../shared/services/movies.service';
-import { ApiResponse } from '../../shared/models/ApiResponse';
+import { Movie } from '../../shared/interfaces/Movie';
+import { ApiResponse } from '../../shared/interfaces/ApiResponse';
 
 @Component({
   selector: 'app-home',
@@ -20,9 +21,10 @@ export class HomePage implements OnInit {
 
   searchMovies(query: string): void {
     this.moviesService
-      .getMovies('el señor de los anillos')
+      .getMovies('el señor de los anillos') //introduce query to params
       .subscribe((data) => {
-        console.log(data);
+        this.movies = data.results;
+        console.log(this.movies);
       });
   }
 }
