@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from '../../shared/models/Movie';
+import { MoviesService } from '../../shared/services/movies.service';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,11 @@ import { Movie } from '../../shared/models/Movie';
 export class HomePage implements OnInit {
   movies: Movie[] = [];
 
-  constructor() {}
+  constructor(private moviesService: MoviesService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.moviesService
+      .getMovies('el señor de los anillos')
+      .subscribe(console.log);
+  }
 }
