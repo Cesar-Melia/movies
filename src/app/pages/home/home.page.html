@@ -1,5 +1,7 @@
 <app-header title="Peliculas"></app-header>
 
 <ion-content>
-
+  <ion-list>
+    <app-movie-item *ngFor="movie of movies" [movie]="movie"></app-movie-item>
+  </ion-list>
 </ion-content>
