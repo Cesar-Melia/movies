@@ -12,6 +12,7 @@ import { MoviesService } from '../../shared/services/movies.service';
 export class DetailPage implements OnInit {
   id: string;
   movie: MovieDetail;
+  date: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,7 +30,30 @@ export class DetailPage implements OnInit {
   searchMovieDetail(id: string): void {
     this.moviesService.getMovieDetail(id).subscribe((data) => {
       this.movie = data;
+
+      this.date = this.formatDate(this.movie.release_date);
       console.log(this.movie); /////////////////////////////////Delete
     });
+  }
+
+  formatDate(date: string): string {
+    const months = {
+      1: 'Enero',
+      2: 'Febrero',
+      3: 'Marzo',
+      4: 'Abril',
+      5: 'Mayo',
+      6: 'Junio',
+      7: 'Julio',
+      8: 'Agosto',
+      9: 'Septiembre',
+      10: 'Octubre',
+      11: 'Noviembre',
+      12: 'Diciembre',
+    };
+    const dateValues: string[] = date.split('-');
+    const newDate = `${months[Number(dateValues[1])]} ${dateValues[0]}`;
+
+    return newDate;
   }
 }
