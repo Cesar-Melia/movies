@@ -5,9 +5,14 @@ import { DetailPage } from './detail.page';
 
 const routes: Routes = [
   {
+    path: ':movieId',
+    component: DetailPage,
+  },
+  {
     path: '',
-    component: DetailPage
-  }
+    component: DetailPage,
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({
