@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+
+import { Movie } from '../../shared/interfaces/Movie';
 
 @Component({
   selector: 'app-detail',
@@ -6,10 +9,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detail.page.scss'],
 })
 export class DetailPage implements OnInit {
+  id: string;
+  movie: Movie;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.route.paramMap.subscribe((params: Params) => {
+      this.id = params.get('movieId');
+    });
+
+    console.log(this.id);
   }
-
 }
