@@ -7,7 +7,7 @@
   </ion-label>
 
   <div class="image-container">
-    <img *ngIf="movie.backdrop_path" [src]="movie.backdrop_path | img" class="image-container__img">
+    <img [src]="movie.backdrop_path | img" class="image-container__img">
   </div>
 
   <ion-grid class="info-section">

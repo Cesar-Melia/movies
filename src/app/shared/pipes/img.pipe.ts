@@ -10,6 +10,8 @@ export class ImgPipe implements PipeTransform {
 
   transform(img: string, size: string = 'w500'): string {
     if (!img) {
+      console.log('URL: ./assets/no-image.jpg');
+
       return './assets/no-image.jpg';
     }
 
