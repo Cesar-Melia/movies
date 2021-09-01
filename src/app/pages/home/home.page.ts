@@ -14,16 +14,21 @@ export class HomePage implements OnInit {
 
   constructor(private moviesService: MoviesService) {}
 
-  ngOnInit() {
-    this.searchMovies(this.movieQuery);
-  }
+  ngOnInit() {}
 
   searchMovies(query: string): void {
-    this.moviesService
-      .getMovies('el señor de los anillos') //introduce query to params
-      .subscribe((data) => {
-        this.movies = data.results;
-        console.log(this.movies);
-      });
+    this.moviesService.getMovies(query).subscribe((data) => {
+      this.movies = data.results;
+      console.log(this.movies);
+    });
+  }
+
+  handleChange(event: CustomEvent): void {
+    console.log('Evento:', event);
+    this.movieQuery = event.detail.value;
+
+    if (this.movieQuery !== '') {
+      this.searchMovies(this.movieQuery);
+    }
   }
 }

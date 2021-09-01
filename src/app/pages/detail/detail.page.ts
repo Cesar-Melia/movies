@@ -14,11 +14,14 @@ export class DetailPage implements OnInit {
   movie: MovieDetail;
   date: string;
   language: string;
+  textSize: number;
 
   constructor(
     private route: ActivatedRoute,
     private moviesService: MoviesService
-  ) {}
+  ) {
+    this.textSize = 150;
+  }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: Params) => {
@@ -255,5 +258,11 @@ export class DetailPage implements OnInit {
     newLanguage = capital + newLanguage.substr(1, newLanguage.length);
 
     return newLanguage;
+  }
+
+  showText(): void {
+    this.textSize = 5000;
+
+    console.log(this.textSize);
   }
 }

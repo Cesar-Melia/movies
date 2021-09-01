@@ -89,15 +89,6 @@
   }
 }
 
-.card-actor {
-  height: 210px;
-}
-
-.actor-name {
-  position: relative;
-  top: 15px;
-}
-
 .info {
   width: 100%;
 
@@ -132,11 +123,27 @@
     margin-top: 10px;
   }
 
+  &__more {
+    padding: 10px;
+  }
+
   @media (min-width: 420px) {
     margin-top: 80px;
   }
+}
 
-  // @media (min-width: 960px) {
-  //   margin-top: 100px;
-  // }
+.actors {
+  padding: 10px;
+
+  &__title {
+  }
+
+  &__card {
+    height: 210px;
+  }
+
+  &__name {
+    position: relative;
+    top: 15px;
+  }
 }
