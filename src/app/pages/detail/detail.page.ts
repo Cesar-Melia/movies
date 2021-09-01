@@ -33,6 +33,8 @@ export class DetailPage implements OnInit {
       this.movie = data;
 
       this.date = this.formatDate(this.movie.release_date);
+      this.language = this.formatLanguage(this.movie.original_language);
+
       console.log(this.movie); /////////////////////////////////Delete
     });
   }
@@ -53,8 +55,10 @@ export class DetailPage implements OnInit {
       12: 'Diciembre',
     };
     const dateValues: string[] = date.split('-');
+    const month = Number(dateValues[1]);
+    const year = dateValues[0];
 
-    return `${months[Number(dateValues[1])]} ${dateValues[0]}`;
+    return `${months[month]} ${year}`;
   }
 
   formatLanguage(language: string): string {
@@ -246,6 +250,10 @@ export class DetailPage implements OnInit {
       zu: 'zulú',
     };
 
-    return isoLanguages[language];
+    let newLanguage: string = isoLanguages[language];
+    const capital: string = newLanguage[0].toUpperCase();
+    newLanguage = capital + newLanguage.substr(1, newLanguage.length);
+
+    return newLanguage;
   }
 }
