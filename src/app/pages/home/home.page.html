@@ -1,14 +1,22 @@
 <app-header title="Películas"></app-header>
 
+<ion-toolbar>
+  <ion-searchbar placeholder="Buscar Película" animated debounce="700" [value]="movieQuery"
+    (ionChange)="handleChange($event)" class="searchbar">
+  </ion-searchbar>
+</ion-toolbar>
+
 <ion-content>
-  <ion-toolbar>
-    <ion-searchbar placeholder="Buscar Película" animated debounce="800" [value]="movieQuery"
-      (ionChange)="handleChange($event)" class="searchbar">
-    </ion-searchbar>
-  </ion-toolbar>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <ion-spinner name="dots" color="primary" *ngIf="searching"></ion-spinner>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
   <div class="image">
-    <img src="./assets/film.png" *ngIf="!this.movieQuery" class="image__logo">
+    <img src="./assets/film.png" *ngIf="movies.length === 0" class="image__logo">
   </div>
 
   <ion-list *ngIf="this.movieQuery !== ''">

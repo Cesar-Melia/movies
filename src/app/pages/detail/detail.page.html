@@ -14,7 +14,7 @@
     <ion-row>
 
       <ion-col size="4" class="card">
-        <img *ngIf="movie.poster_path" [src]="movie.poster_path | img" class="card__image">
+        <img [src]="movie.poster_path | img" class="card__image">
 
         <ion-icon name="star-sharp" class="card__icon"></ion-icon>
         <ion-label class="card__score">

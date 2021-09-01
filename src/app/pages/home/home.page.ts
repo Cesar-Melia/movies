@@ -11,8 +11,12 @@ import { Movie } from '../../shared/interfaces/Movie';
 export class HomePage implements OnInit {
   movies: Movie[];
   movieQuery: string;
+  searching: boolean;
 
-  constructor(private moviesService: MoviesService) {}
+  constructor(private moviesService: MoviesService) {
+    this.searching = false;
+    this.movies = [];
+  }
 
   ngOnInit() {}
 
@@ -20,14 +24,16 @@ export class HomePage implements OnInit {
     this.moviesService.getMovies(query).subscribe((data) => {
       this.movies = data.results;
       console.log(this.movies);
+      this.searching = false;
     });
   }
 
   handleChange(event: CustomEvent): void {
-    console.log('Evento:', event);
     this.movieQuery = event.detail.value;
+    this.movies = [];
 
     if (this.movieQuery !== '') {
+      this.searching = true;
       this.searchMovies(this.movieQuery);
     }
   }
