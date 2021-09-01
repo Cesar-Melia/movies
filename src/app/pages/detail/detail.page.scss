@@ -112,6 +112,15 @@
     margin: 0px;
     min-width: 120px;
   }
+
+  &__icon {
+    font-size: 20px;
+    margin-left: 10px;
+
+    @media (min-width: 820px) {
+      font-size: 30px;
+    }
+  }
 }
 
 .description {
