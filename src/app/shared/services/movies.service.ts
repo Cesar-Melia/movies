@@ -17,8 +17,8 @@ export class MoviesService {
 
   constructor(private http: HttpClient) {}
 
-  getMovies(query: string): Observable<ApiResponse> {
-    const url = `${this.API_URL}search/movie?api_key=${this.API_KEY}&query=${query}&language=es`;
+  getMovies(query: string, page: number): Observable<ApiResponse> {
+    const url = `${this.API_URL}search/movie?api_key=${this.API_KEY}&query=${query}&language=es&page=${page}`;
 
     return this.http.get<ApiResponse>(url);
   }

@@ -22,4 +22,9 @@
   <ion-list *ngIf="this.movieQuery !== ''">
     <app-movie-item *ngFor="let movie of movies" [movie]="movie"></app-movie-item>
   </ion-list>
+
+  <ion-infinite-scroll threshold="100px" [disabled]="scrollDisabled" (ionInfinite)="handleScroll()">
+    <ion-infinite-scroll-content loadingSpinner="crescent" loadingText="Cargando...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
