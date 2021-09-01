@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 
 import { MoviesService } from '../../shared/services/movies.service';
 import { Movie } from '../../shared/interfaces/Movie';
@@ -9,7 +9,7 @@ import { IonInfiniteScroll } from '@ionic/angular';
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
 })
-export class HomePage implements OnInit {
+export class HomePage {
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
 
   movies: Movie[];
@@ -23,15 +23,11 @@ export class HomePage implements OnInit {
     this.movies = [];
   }
 
-  ngOnInit() {
-    // this.resetValues();
-  }
-
   searchMovies(query: string, page: number = 1): void {
-    this.moviesService.getMovies(query, page).subscribe((data) => {
-      this.movies.push(...data.results);
-      this.currentPage = data.page;
-      this.totalPages = data.total_pages;
+    this.moviesService.getMovies(query, page).subscribe((res) => {
+      this.movies.push(...res.results);
+      this.currentPage = res.page;
+      this.totalPages = res.total_pages;
       this.searching = false;
     });
   }
