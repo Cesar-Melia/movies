@@ -1,17 +1,19 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnDestroy } from '@angular/core';
 
 import { MoviesService } from '../../shared/services/movies.service';
 import { Movie } from '../../shared/interfaces/Movie';
 import { IonInfiniteScroll } from '@ionic/angular';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnDestroy {
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
 
+  apiSub: Subscription;
   movies: Movie[];
   movieQuery: string;
   searching: boolean;
@@ -23,8 +25,12 @@ export class HomePage {
     this.movies = [];
   }
 
+  ngOnDestroy(): void {
+    this.apiSub.unsubscribe();
+  }
+
   searchMovies(query: string, page: number = 1): void {
-    this.moviesService.getMovies(query, page).subscribe((res) => {
+    this.apiSub = this.moviesService.getMovies(query, page).subscribe((res) => {
       this.movies.push(...res.results);
       this.currentPage = res.page;
       this.totalPages = res.total_pages;
