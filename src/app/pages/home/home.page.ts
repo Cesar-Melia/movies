@@ -47,7 +47,7 @@ export class HomePage implements OnDestroy {
    *
    * @param event - Customevent - Event emitted when the user finishes typing.
    */
-  handleChange(event: CustomEvent): void {
+  handleChange(event): void {
     this.movieQuery = event.detail.value;
     this.resetValues();
 
