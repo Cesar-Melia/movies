@@ -19,7 +19,7 @@ export class MovieItemComponent implements OnInit {
    *
    * @param id - string - Movie id.
    */
-  showDetail(id: string) {
+  showDetail() {
     this.router.navigate(['/detail', this.movie.id]);
   }
 }
