@@ -1,8 +1,8 @@
 <app-header title="Películas"></app-header>
 
-<ion-toolbar>
+<ion-toolbar class="searchbar">
   <ion-searchbar placeholder="Buscar Película" animated debounce="700" [value]="movieQuery"
-    (ionChange)="handleChange($event)" class="searchbar">
+    (ionChange)="handleChange($event)" class="searchbar__input">
   </ion-searchbar>
 </ion-toolbar>
 
@@ -19,7 +19,7 @@
     <img src="./assets/film.png" *ngIf="movies.length === 0" class="image__logo">
   </div>
 
-  <ion-list *ngIf="this.movieQuery !== ''">
+  <ion-list *ngIf="this.movieQuery !== ''" class="movies">
     <app-movie-item *ngFor="let movie of movies" [movie]="movie"></app-movie-item>
   </ion-list>
 

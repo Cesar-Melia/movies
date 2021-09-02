@@ -1,6 +1,15 @@
 .searchbar {
-  position: relative;
+  width: 100%;
   margin-top: 10px;
+
+  &__input {
+    max-width: 720px;
+    margin: 0 auto;
+
+    @media (min-width: 1200px) {
+      width: 1140px;
+    }
+  }
 }
 
 .image {
@@ -16,5 +25,13 @@
     @media (min-width: 820px) {
       width: 410px;
     }
+  }
+}
+
+.movies {
+  margin: 0 auto;
+
+  @media (min-width: 1200px) {
+    width: 1140px;
   }
 }
