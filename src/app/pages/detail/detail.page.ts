@@ -23,7 +23,7 @@ export class DetailPage implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private moviesService: MoviesService
   ) {
-    this.textSize = 150;
+    this.textSize = 200;
   }
 
   ngOnInit(): void {
