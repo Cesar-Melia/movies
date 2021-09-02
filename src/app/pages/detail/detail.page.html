@@ -30,7 +30,9 @@
         <ion-item class="info-section__box">
           <ion-icon name="volume-medium-outline" color="primary" class="info-section__icon">
           </ion-icon>
-          <ion-label slot="end" class="info-section__text">V.O. {{language}}</ion-label>
+          <ion-label slot="end" class="info-section__text">V.O. {{this.movie.original_language |
+            language}}
+          </ion-label>
         </ion-item>
 
       </ion-col>
