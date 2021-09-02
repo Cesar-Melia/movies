@@ -258,7 +258,6 @@ export class DetailPage implements OnInit, OnDestroy {
       zh: 'chino',
       zu: 'zulú',
     };
-
     let newLanguage: string = isoLanguages[language];
     const capital: string = newLanguage[0].toUpperCase();
     newLanguage = capital + newLanguage.substr(1, newLanguage.length);

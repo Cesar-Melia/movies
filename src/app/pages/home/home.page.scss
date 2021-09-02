@@ -12,5 +12,9 @@
     position: absolute;
     width: 50%;
     top: 10vh;
+
+    @media (min-width: 820px) {
+      width: 410px;
+    }
   }
 }
