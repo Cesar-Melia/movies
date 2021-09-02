@@ -15,7 +15,6 @@ export class DetailPage implements OnInit, OnDestroy {
   apiSub: Subscription;
   id: string;
   movie: MovieDetail;
-  date: string;
   textSize: number;
 
   constructor(
