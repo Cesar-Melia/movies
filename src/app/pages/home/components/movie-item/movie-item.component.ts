@@ -15,7 +15,11 @@ export class MovieItemComponent implements OnInit {
 
   ngOnInit() {}
 
-  async showDetail(id: string) {
+  /** This function links to the detail page by passing the id of the movie as a parameter.
+   *
+   * @param id - string - Movie id.
+   */
+  showDetail(id: string) {
     this.router.navigate(['/detail', this.movie.id]);
   }
 }

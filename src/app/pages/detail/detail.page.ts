@@ -37,12 +37,17 @@ export class DetailPage implements OnInit, OnDestroy {
     this.apiSub.unsubscribe();
   }
 
+  /** This function uses the movieService to get the details of the movie.
+   *
+   * @param id - string - Movie id.
+   */
   searchMovieDetail(id: string): void {
     this.apiSub = this.moviesService.getMovieDetail(id).subscribe((data) => {
       this.movie = data;
     });
   }
 
+  /** This function assigns the value 5000 to the variable textSize. */
   showText(): void {
     this.textSize = 5000;
   }
