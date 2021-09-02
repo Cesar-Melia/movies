@@ -3,7 +3,7 @@
 
 Movies App is a Web  Application created with Ionic and Angular framework.
 
----
+
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ $ npm install -g @angular/cli
 $ npm install -g @ionic/cli
 ```
 
----
+
 
 ## **Usage**
 
@@ -32,7 +32,7 @@ User following command to run this project
 $ ionic serve
 ```
 
----
+
 
 ## **Contact**
 
