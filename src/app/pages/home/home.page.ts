@@ -53,13 +53,15 @@ export class HomePage implements OnDestroy {
     if (this.currentPage < this.totalPages) {
       this.searchMovies(this.movieQuery, ++this.currentPage);
       this.infiniteScroll.complete();
+      return;
     }
+
+    this.scrollDisabled = true;
   }
 
   resetValues(): void {
     this.movies = [];
     this.currentPage = 0;
     this.totalPages = 0;
-    this.scrollDisabled = true;
   }
 }
