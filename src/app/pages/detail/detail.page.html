@@ -16,10 +16,13 @@
       <ion-col size="4" class="info-section__card">
         <img [src]="movie.poster_path | img" class="info-section__image">
 
-        <ion-icon name="star-sharp" class="info-section__icon"></ion-icon>
-        <ion-label class="info-section__score">
-          {{movie.vote_average}}
-        </ion-label>
+        <ion-item class="info-section__score-block">
+          <ion-icon name="star-sharp" class="info-section__star"></ion-icon>
+          <ion-label class="info-section__score">
+            {{movie.vote_average}}
+          </ion-label>
+        </ion-item>
+
       </ion-col>
 
       <ion-col class="info-section__info">

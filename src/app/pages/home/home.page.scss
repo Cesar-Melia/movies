@@ -5,6 +5,7 @@
   &__input {
     max-width: 720px;
     margin: 0 auto;
+    --icon-color: var(--ion-color-primary);
 
     @media (min-width: 1200px) {
       width: 1140px;
