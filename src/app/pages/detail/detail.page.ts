@@ -41,31 +41,7 @@ export class DetailPage implements OnInit, OnDestroy {
   searchMovieDetail(id: string): void {
     this.apiSub = this.moviesService.getMovieDetail(id).subscribe((data) => {
       this.movie = data;
-
-      this.date = this.formatDate(this.movie.release_date);
     });
-  }
-
-  formatDate(date: string): string {
-    const months = {
-      1: 'Enero',
-      2: 'Febrero',
-      3: 'Marzo',
-      4: 'Abril',
-      5: 'Mayo',
-      6: 'Junio',
-      7: 'Julio',
-      8: 'Agosto',
-      9: 'Septiembre',
-      10: 'Octubre',
-      11: 'Noviembre',
-      12: 'Diciembre',
-    };
-    const dateValues: string[] = date.split('-');
-    const month = Number(dateValues[1]);
-    const year = dateValues[0];
-
-    return `${months[month]} ${year}`;
   }
 
   showText(): void {
