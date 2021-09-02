@@ -1,9 +1,9 @@
 import { Component, ViewChild, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { IonInfiniteScroll } from '@ionic/angular';
 
 import { MoviesService } from '../../shared/services/movies.service';
 import { Movie } from '../../shared/interfaces/Movie';
-import { IonInfiniteScroll } from '@ionic/angular';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',

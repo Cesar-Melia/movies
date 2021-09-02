@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Movie } from '../../../../shared/interfaces/Movie';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-item',

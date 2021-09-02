@@ -45,8 +45,6 @@ export class DetailPage implements OnInit, OnDestroy {
 
       this.date = this.formatDate(this.movie.release_date);
       this.language = this.formatLanguage(this.movie.original_language);
-
-      console.log(this.movie); /////////////////////////////////Delete
     });
   }
 
@@ -270,7 +268,5 @@ export class DetailPage implements OnInit, OnDestroy {
 
   showText(): void {
     this.textSize = 5000;
-
-    console.log(this.textSize);
   }
 }
