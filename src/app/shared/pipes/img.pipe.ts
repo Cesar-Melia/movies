@@ -9,11 +9,10 @@ export class ImgPipe implements PipeTransform {
   IMG_URL: string = environment.imgUrl;
 
   transform(img: string, size: string = 'w500'): string {
-    if (!img) {
-      return './assets/no-image.jpg';
-    }
+    const imgUrl: string = img
+      ? `${this.IMG_URL}${size}${img}`
+      : './assets/no-image.jpg';
 
-    const imgUrl = `${this.IMG_URL}${size}${img}`;
     return imgUrl;
   }
 }
