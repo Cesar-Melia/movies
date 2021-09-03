@@ -1,3 +1,12 @@
 .title {
   text-align: center;
+  font-size: 22px;
+
+  @media (min-width: 540px) {
+    font-size: 25px;
+  }
+
+  @media (min-width: 820px) {
+    font-size: 30px;
+  }
 }
